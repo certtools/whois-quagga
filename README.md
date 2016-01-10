@@ -8,7 +8,7 @@ See the corresponding LICENSE file
 
 # What does it do?
 
-This script gets added to ``/etc/inetd.conf`` for port 43 (whois, RFC3912)[https://tools.ietf.org/html/rfc3912] requests.
+This script gets added to ``/etc/inetd.conf`` for port 43 [whois, RFC3912](https://tools.ietf.org/html/rfc3912) requests.
 It will then look at the request. If it's an IP address, it will look up the current ASN which announces the most specific
 matching netblock enclosing the ip address and return this ASN.
 
@@ -57,7 +57,7 @@ Hence the ASN is 30971.
 
 # Requirements
 
-A working quagga instance with a full BGP table feed.
+A working quagga instance with a full BGP table feed. A working ``vtysh -c`` command.
 
 
 # How to install?
@@ -71,6 +71,7 @@ whois   stream  tcp     nowait  nobody  /usr/local/bin/quagga-whois.pl quagga-wh
 
 Adjust the paths to your needs of course.
 
+Next, edit the quagga-whois.pl script and replace ``my $ORG = "CERT.at";`` (CERT.at) with your organisation name.
 
 
 
