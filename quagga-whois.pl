@@ -245,7 +245,7 @@ while(my $arg = shift(@ARGV)) {
                 $origin =~ s/.* (\d+)/$1/;
             } elsif (/^  Local/) {
                 $path = $origin = $own_asn;
-            } elsif (/Community: ([\d\w :]+)/) {
+            } elsif (/Community: ([\d\w :-]+)/) {
                 $community = $1;
             }
             print if ($p_full);
