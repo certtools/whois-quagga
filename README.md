@@ -1,9 +1,10 @@
 # quagga whois
 
-Whois interface to quagga (BGP routing daemon) to do IP 2 ASN lookups
+Whois interface to quagga (BGP routing daemon) to do IP to ASN lookups
 
-This code was originally developed by Otmar Lendl <lendl@cert.at> and released to the public.
-See the corresponding LICENSE file
+This code was developed by Otmar Lendl <lendl@cert.at> and released under the GNU AFFERO GENERAL PUBLIC LICENSE.
+
+See the corresponding LICENSE file.
 
 
 # What does it do?
@@ -77,6 +78,8 @@ Next, edit the quagga-whois.pl script and replace ``my $ORG = "CERT.at";`` (CERT
 
 # Contributing
 
-Please send us pull requests via github.com
+Pull requests are on github welcome, but have a high chance of being missed.
+A mail to the author is recommended.
+
 
 
