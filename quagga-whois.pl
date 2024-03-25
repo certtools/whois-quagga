@@ -8,7 +8,8 @@
 #
 
 use strict;
-
+use Sys::Syslog qw(:standard :macros);
+use Socket;
 
 my $read_timeout = 1;
 my $quagga_timeout = 5;
@@ -32,6 +33,19 @@ alarm 0;
 
 $input =~ tr/-a-z0-9.: //cd;
 #print "sanititzed: $input\n\n";
+
+my ($port,$addr);
+$addr = 'stdin';
+
+eval {		# find my network peer
+	($port,$addr) = sockaddr_in(getpeername(STDIN)); 
+	$addr = inet_ntoa($addr);
+};
+
+openlog('bgp-whois', 'ndelay,nofatal,pid', LOG_LOCAL0);
+setlogmask( LOG_UPTO(LOG_DEBUG) );
+syslog(LOG_INFO, "Request from %s: %s", $addr, $input);
+closelog();
 
 
 my $p_block;
